@@ -99,9 +99,15 @@ void bst<T>::insert(T item){
                 rightrotate(curr);
             } else if(curr->balance == 1 && prev->balance == -1) {
                 rightrotate(prev);
+                /*
+                prev->height -= 1;
+                */
                 leftrotate(curr);
             } else if(curr->balance == -1 && prev->balance == 1) {
                 leftrotate(prev);
+                /*
+                prev->height -= 1;
+                */
                 rightrotate(curr);
             }
         } else {
