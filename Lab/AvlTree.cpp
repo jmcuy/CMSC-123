@@ -94,30 +94,14 @@ void bst<T>::insert(T item){
 
         if(abs(height(curr->left) - height(curr->right)) >= 2) {
             if(curr->balance == 1 && prev->balance == 1) {
-                //cout << "left rotate" << endl;
                 leftrotate(curr);
-                /*prev->height = max(height(prev->left), height(prev->right)) + 1;
-                prev->balance = bal(height(prev->left), height(prev->right));
-                prev->child = child(prev, prev->prnt);*/
             } else if(curr->balance == -1 && prev->balance == -1) {
-                //cout << "right rotate" << endl;
                 rightrotate(curr);
-                /*prev->height = max(height(prev->left), height(prev->right)) + 1;
-                prev->balance = bal(height(prev->left), height(prev->right));
-                prev->child = child(prev, prev->prnt);*/
             } else if(curr->balance == 1 && prev->balance == -1) {
-                //cout << "right left rotate" << endl;
                 rightrotate(prev);
-                /*prev->height = max(height(prev->left), height(prev->right)) + 1;
-                prev->balance = bal(height(prev->left), height(prev->right));
-                prev->child = child(prev, prev->prnt);*/
                 leftrotate(curr);
             } else if(curr->balance == -1 && prev->balance == 1) {
-                //cout << "left right rotate" << endl;
                 leftrotate(prev);
-                /*prev->height = max(height(prev->left), height(prev->right)) + 1;
-                prev->balance = bal(height(prev->left), height(prev->right));
-                prev->child = child(prev, prev->prnt);*/
                 rightrotate(curr);
             }
         } else {
