@@ -99,14 +99,18 @@ void bst<T>::insert(T item){
                 rightrotate(curr);
             } else if(curr->balance == 1 && prev->balance == -1) {
                 rightrotate(prev);
-                /*
-                prev->height -= 1;
+                /*        
+                prev->height = max(height(prev->left), height(prev->right)) + 1;
+                prev->balance = bal(height(prev->left), height(prev->right));
+                prev->child = child(prev, prev->prnt);
                 */
                 leftrotate(curr);
             } else if(curr->balance == -1 && prev->balance == 1) {
                 leftrotate(prev);
                 /*
-                prev->height -= 1;
+                prev->height = max(height(prev->left), height(prev->right)) + 1;
+                prev->balance = bal(height(prev->left), height(prev->right));
+                prev->child = child(prev, prev->prnt);
                 */
                 rightrotate(curr);
             }
